@@ -1,7 +1,7 @@
 import XCTest
-@testable import SwiftSDL2Image
+@testable import SDL2Image
 
-final class SwiftSDL2ImageTests: XCTestCase {
+final class SDL2ImageTests: XCTestCase {
     func testVersion() {
 
         let version = IMG_Linked_Version().pointee
