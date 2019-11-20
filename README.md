@@ -1,4 +1,4 @@
-# SwiftSDLImage
+# Swift SDL2 Image
 
 A description of this package.
 
