@@ -24,7 +24,8 @@ let package = Package(
                               path: "Sources/CSDLImage",
                               pkgConfig: "SDL_image",
                               providers: [
-                                   .brew(["SDL_Image"])
+                                   .brew(["SDL_Image"]),
+                                   .apt(["libsdl2-image-dev"])
                                ]),
         
         .testTarget(
