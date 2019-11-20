@@ -1,6 +1,8 @@
 @_exported import CSDLImage
 
 // swiftlint:disable identifier_name
+
+// swiftlint:disable:next prefixed_toplevel_constant
 public let IMG_INIT_ALL = Int32(IMG_INIT_JPG.rawValue | IMG_INIT_PNG.rawValue | IMG_INIT_TIF.rawValue | IMG_INIT_WEBP.rawValue)
 
 extension SDL_Surface {
@@ -56,8 +58,7 @@ extension SDL_Surface {
         return [r, g, b]
     }
 
-    @inlinable
-    public var pixelBuffer: UnsafeMutableRawBufferPointer {
+    @inlinable public var pixelBuffer: UnsafeMutableRawBufferPointer {
         let count = Int(Int32(pitch) * h * Int32(format.pointee.BytesPerPixel))
         return UnsafeMutableRawBufferPointer(start: pixels,
                                              count: count)
