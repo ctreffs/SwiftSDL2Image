@@ -1,20 +1,23 @@
 @_exported import CSDLImage
 
+// swiftlint:disable identifier_name
 public let IMG_INIT_ALL = Int32(IMG_INIT_JPG.rawValue | IMG_INIT_PNG.rawValue | IMG_INIT_TIF.rawValue | IMG_INIT_WEBP.rawValue)
 
 extension SDL_Surface {
     // https://sdl.beuc.net/sdl.wiki/Pixel_Access
-    
+
     @inlinable
     public func getPixel(x: Int, y: Int) -> UInt32 {
         let bpp = format.pointee.BytesPerPixel
         let p = pixels.advanced(by: y * Int(pitch) + x * Int(bpp))
-        
+
         switch bpp {
         case 1:
             return UInt32(p.assumingMemoryBound(to: Uint8.self).pointee)
+
         case 2:
             return UInt32(p.assumingMemoryBound(to: Uint16.self).pointee)
+
         case 3:
             let mp = p.assumingMemoryBound(to: UInt32.self)
             if SDL_BYTEORDER == BIG_ENDIAN {
@@ -22,14 +25,16 @@ extension SDL_Surface {
             } else {
                 return mp[0] | mp[1] << 8 | mp[2] << 16
             }
+
         case 4:
             return p.assumingMemoryBound(to: UInt32.self).pointee
+
         default:
             assertionFailure("Unexpected bytes per pixel: \(bpp)")
             return 0
         }
     }
-    
+
     @inlinable
     public func getPixelRGBA(x: Int, y: Int) -> SIMD4<UInt8> {
         let pixel = getPixel(x: x, y: y)
@@ -40,7 +45,7 @@ extension SDL_Surface {
         SDL_GetRGBA(pixel, format, &r, &g, &b, &a)
         return [r, g, b, a]
     }
-    
+
     @inlinable
     public func getPixelRGB(x: Int, y: Int) -> SIMD3<UInt8> {
         let pixel = getPixel(x: x, y: y)
@@ -49,5 +54,27 @@ extension SDL_Surface {
         var b: UInt8 = 0
         SDL_GetRGB(pixel, format, &r, &g, &b)
         return [r, g, b]
+    }
+
+    @inlinable
+    public var pixelBuffer: UnsafeMutableRawBufferPointer {
+        let count = Int(Int32(pitch) * h * Int32(format.pointee.BytesPerPixel))
+        return UnsafeMutableRawBufferPointer(start: pixels,
+                                             count: count)
+    }
+
+    @inlinable
+    public mutating func lock() {
+        SDL_LockSurface(&self)
+    }
+
+    @inlinable
+    public mutating func unlock() {
+        SDL_UnlockSurface(&self)
+    }
+
+    @inlinable
+    public mutating func free() {
+        SDL_FreeSurface(&self)
     }
 }

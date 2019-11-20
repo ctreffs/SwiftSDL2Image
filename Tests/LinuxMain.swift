@@ -3,5 +3,6 @@ import XCTest
 import SwiftSDLImageTests
 
 var tests = [XCTestCaseEntry]()
-tests += SwiftSDLImageTests.allTests()
+tests += SwiftSDLImageTests.__allTests()
+
 XCTMain(tests)

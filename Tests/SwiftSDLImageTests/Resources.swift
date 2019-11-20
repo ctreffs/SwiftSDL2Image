@@ -27,6 +27,7 @@ enum Resource: String {
         resourcesURL.deleteLastPathComponent()
         return resourcesURL
     }
+
     static func load(_ resource: Resource) throws -> URL {
         guard let remoteURL: URL = URL(string: resource.rawValue) else {
             throw Error.invalidURL(resource.rawValue)
