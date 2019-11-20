@@ -1,19 +1,19 @@
 import XCTest
-@testable import SwiftSDLImage
+@testable import SwiftSDL2Image
 
-final class SwiftSDLImageTests: XCTestCase {
+final class SwiftSDL2ImageTests: XCTestCase {
     func testVersion() {
 
         let version = IMG_Linked_Version().pointee
 
         XCTAssertNotNil(version)
-        XCTAssertEqual(version.major, 1)
-        XCTAssertEqual(version.minor, 2)
-        XCTAssertEqual(version.patch, 12)
+        XCTAssertEqual(version.major, 2)
+        XCTAssertEqual(version.minor, 0)
+        XCTAssertEqual(version.patch, 5)
 
-        XCTAssertEqual(SDL_IMAGE_MAJOR_VERSION, 1)
-        XCTAssertEqual(SDL_IMAGE_MINOR_VERSION, 2)
-        XCTAssertEqual(SDL_IMAGE_PATCHLEVEL, 12)
+        XCTAssertEqual(SDL_IMAGE_MAJOR_VERSION, 2)
+        XCTAssertEqual(SDL_IMAGE_MINOR_VERSION, 0)
+        XCTAssertEqual(SDL_IMAGE_PATCHLEVEL, 5)
 
     }
 

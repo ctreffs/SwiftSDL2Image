@@ -6,6 +6,7 @@ A description of this package.
 
 
 ```
-pkg-config --cflags --libs sdl_image
--D_GNU_SOURCE=1 -D_THREAD_SAFE -I/usr/local/include/SDL -L/usr/local/lib -lSDL_image -lSDLmain -lSDL -Wl,-framework,Cocoa
+ pkg-config --libs --cflags sdl2_image
+-D_THREAD_SAFE -I/usr/local/include/SDL2 -L/usr/local/lib -lSDL2_image -lSDL2
+
 ```

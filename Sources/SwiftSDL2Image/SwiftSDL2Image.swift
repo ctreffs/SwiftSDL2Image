@@ -1,4 +1,4 @@
-@_exported import CSDLImage
+@_exported import CSDL2Image
 
 // swiftlint:disable identifier_name
 

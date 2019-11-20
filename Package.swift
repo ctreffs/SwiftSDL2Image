@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftSDLImage",
+    name: "SwiftSDL2Image",
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "SwiftSDLImage",
-            targets: ["SwiftSDLImage"])
+            name: "SwiftSDL2Image",
+            targets: ["SwiftSDL2Image"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -18,18 +18,18 @@ let package = Package(
     targets: [
        
         .target(
-            name: "SwiftSDLImage",
-            dependencies: ["CSDLImage"]),
-        .systemLibrary(name: "CSDLImage",
-                              path: "Sources/CSDLImage",
-                              pkgConfig: "SDL_image",
+            name: "SwiftSDL2Image",
+            dependencies: ["CSDL2Image"]),
+        .systemLibrary(name: "CSDL2Image",
+                              path: "Sources/CSDL2Image",
+                              pkgConfig: "sdl2_image",
                               providers: [
-                                   .brew(["SDL_Image"]),
+                                   .brew(["sdl2_image"]),
                                    .apt(["libsdl2-image-dev"])
                                ]),
         
         .testTarget(
-            name: "SwiftSDLImageTests",
-            dependencies: ["SwiftSDLImage"]),
+            name: "SwiftSDL2ImageTests",
+            dependencies: ["SwiftSDL2Image"]),
     ]
 )

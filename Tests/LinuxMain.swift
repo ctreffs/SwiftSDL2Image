@@ -1,8 +1,8 @@
 import XCTest
 
-import SwiftSDLImageTests
+import SwiftSDL2ImageTests
 
 var tests = [XCTestCaseEntry]()
-tests += SwiftSDLImageTests.__allTests()
+tests += SwiftSDL2ImageTests.__allTests()
 
 XCTMain(tests)

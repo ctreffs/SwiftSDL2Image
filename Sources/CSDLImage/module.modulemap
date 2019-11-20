@@ -1,8 +1,0 @@
-module CSDLImage [system] {
-    umbrella header "shims.h"
-    link "SDL_image"
-    link "SDLmain"
-    link "SDL"
-    export *
-}
-
