@@ -22,9 +22,9 @@ let package = Package(
             dependencies: ["CSDL2Image"]),
         .systemLibrary(name: "CSDL2Image",
                               path: "Sources/CSDL2Image",
-                              pkgConfig: "sdl2_image",
+                              pkgConfig: "SDL2_image",
                               providers: [
-                                   .brew(["sdl2_image"]),
+                                   .brew(["SDL2_image"]),
                                    .apt(["libsdl2-image-dev"])
                                ]),
         
