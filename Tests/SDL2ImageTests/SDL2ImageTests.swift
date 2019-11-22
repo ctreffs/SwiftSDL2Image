@@ -9,11 +9,11 @@ final class SDL2ImageTests: XCTestCase {
         XCTAssertNotNil(version)
         XCTAssertEqual(version.major, 2)
         XCTAssertEqual(version.minor, 0)
-        XCTAssertGreaterThanOrEqual(version.patch, 3)
+        XCTAssertGreaterThanOrEqual(version.patch, 5)
 
         XCTAssertEqual(SDL_IMAGE_MAJOR_VERSION, 2)
         XCTAssertEqual(SDL_IMAGE_MINOR_VERSION, 0)
-        XCTAssertGreaterThanOrEqual(SDL_IMAGE_PATCHLEVEL, 3)
+        XCTAssertGreaterThanOrEqual(SDL_IMAGE_PATCHLEVEL, 5)
 
     }
 
