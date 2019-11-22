@@ -3,7 +3,7 @@ image: swift:5.0.3
 before_script:
   # use the Gitlab CI Job token to login for all git clones on the machine.
   - echo -e "machine gitlab.com\nlogin gitlab-ci-token\npassword ${CI_JOB_TOKEN}" > ~/.netrc
-  - echo -e "deb-src http://archive.ubuntu.com/ubuntu eoan main restricted universe multiverse" > /etc/apt/sources.list
+  - echo -e "deb-src http://archive.ubuntu.com/ubuntu eoan main restricted universe multiverse" >> /etc/apt/sources.list
   - apt-get update -qq 
   - apt-get install -y -qq pkg-config #wget # PKG config && wget
   - apt-get install -y -qq libsdl2-dev    # SDL2
