@@ -4,11 +4,9 @@ before_script:
   # use the Gitlab CI Job token to login for all git clones on the machine.
   - echo -e "machine gitlab.com\nlogin gitlab-ci-token\npassword ${CI_JOB_TOKEN}" > ~/.netrc
   - apt-get update -qq 
-  - apt-cache madison libsdl2-image-dev
-  - apt-cache madison libsdl2-image
   - apt-get install -y -qq pkg-config     # PKG config
   - apt-get install -y -qq libsdl2-dev    # SDL2
-  - apt-get install -y -qq libsdl2-image-dev # SDL2 image
+  - apt-get install -y -qq -t unstable libsdl2-image-dev # SDL2 image
 
 stages: 
   - test
