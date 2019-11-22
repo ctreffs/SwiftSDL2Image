@@ -26,8 +26,8 @@ final class SDL2ImageTests: XCTestCase {
         IMG_Quit()
     }
 
-    func testLoad() {
-        let logoPng = try! Resource.load(.logo_png)
+    func testLoad() throws {
+        let logoPng = try Resource.load(.logo_png)
         guard let surfacePtr = IMG_Load(logoPng.path) else {
             XCTFail("\(String(cString: SDL_GetError()))")
             return

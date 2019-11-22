@@ -64,18 +64,7 @@ extension SDL_Surface {
                                              count: count)
     }
 
-    @inlinable
-    public mutating func lock() {
-        SDL_LockSurface(&self)
-    }
-
-    @inlinable
-    public mutating func unlock() {
-        SDL_UnlockSurface(&self)
-    }
-
-    @inlinable
-    public mutating func free() {
-        SDL_FreeSurface(&self)
+    func a() {
+        SDL_GetPixelFormatName(format.pointee.format)
     }
 }
