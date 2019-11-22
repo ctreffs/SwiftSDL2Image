@@ -6,6 +6,7 @@ extension SDL2ImageTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__SDL2ImageTests = [
+        ("testFormatEnumAvailablility", testFormatEnumAvailablility),
         ("testInit", testInit),
         ("testLoad", testLoad),
         ("testVersion", testVersion)

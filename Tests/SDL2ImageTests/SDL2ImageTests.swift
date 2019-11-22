@@ -53,4 +53,9 @@ final class SDL2ImageTests: XCTestCase {
         XCTAssertEqual(surface.getPixelRGBA(x: 200, y: 300), [245, 166, 35, 255])
     }
 
+    func testFormatEnumAvailablility() {
+        XCTAssertNotNil(SDL_PIXELFORMAT_BGRA32)
+        XCTAssertNotNil(SDL_PixelFormatEnum(SDL_PIXELFORMAT_BGRA32.rawValue))
+    }
+
 }
