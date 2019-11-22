@@ -5,9 +5,10 @@ before_script:
   - echo -e "machine gitlab.com\nlogin gitlab-ci-token\npassword ${CI_JOB_TOKEN}" > ~/.netrc
   - apt-get update -qq 
   - apt-get install -y -qq pkg-config wget # PKG config && wget
+  - apt-get install -y -qq libsdl2-dev    # SDL2
   - TEMP_DEB="$(mktemp)" && wget -O "$TEMP_DEB" 'http://archive.ubuntu.com/ubuntu/pool/universe/libs/libsdl2-image/libsdl2-image-dev_2.0.5+dfsg1-1_amd64.deb' && dpkg -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
   #- apt-get install -y -qq -t unstable libsdl2-image-dev # SDL2 image
-  - apt-get install -y -qq libsdl2-dev    # SDL2
+  
 
 stages: 
   - test
