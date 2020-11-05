@@ -1,6 +1,8 @@
 # Swift SDL2 Image
 
-A description of this package.
+--- 
+### **THIS IS A WORK IN PROGRESS AND DOES NOT NECESSARILY FUNCTION AT ALL!**
+--- 
 
 <https://www.libsdl.org/projects/SDL_image/docs/SDL_image.html>
 
@@ -17,3 +19,7 @@ A description of this package.
 pkg-config SDL2_image --libs --cflags
 -D_REENTRANT -I/usr/include/SDL2 -lSDL2_image -lSDL2
 ```
+
+## License
+
+[ZLIB](LICENSE)
